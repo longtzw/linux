@@ -8,31 +8,31 @@ sudo aptitude install wireshark
 
 解决方法如下：
 
-1. 创建一个新组
+1.创建一个新组
 
 ```
 sudo groupadd wireshark
 ```
 
-2. 将当前用户加入到该组
+2.将当前用户加入到该组
 
 ```
 sudo usermod -a -G wireshark your_user_name
 ```
 
-3. 改变/usr/bin/dumpcap所属的用户组
+3.改变/usr/bin/dumpcap所属的用户组
 
 ```
 sudo chgrp wireshark /usr/bin/dumpcap
 ```
 
-4. 改变/usr/bin/dumpcap的执行权限，使其对用户组可执行
+4.改变/usr/bin/dumpcap的执行权限，使其对用户组可执行
 
 ```
 sudo chmod 750 /usr/bin/dumpcap
 ```
 
-5. 赋予能力
+5.赋予能力
 
 ```
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
